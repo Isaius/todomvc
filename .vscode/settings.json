@@ -1,0 +1,6 @@
+{
+    "prettier.configPath": "",
+    "prettier.requireConfig": true,
+    "editor.formatOnSave": true,
+    "prettier.bracketSpacing": true
+}
