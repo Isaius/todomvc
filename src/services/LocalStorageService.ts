@@ -1,14 +1,13 @@
-import { Todo } from '../types'
-import { PersistenceInterface } from './interfaces'
+import { TodoService } from './TodoService'
 
 const todoRootKey = 'todo_root'
 
-const LocalStorageProvider = (): PersistenceInterface => {
-  const store = (data: Todo[]) => {
+const LocalStorageTodoService = (): TodoService => {
+  const store: TodoService['store'] = async (data) => {
     localStorage.setItem(todoRootKey, JSON.stringify(data))
   }
 
-  const retrieve = (): Todo[] => {
+  const retrieve: TodoService['retrieve'] = async () => {
     return JSON.parse(localStorage.getItem(todoRootKey) || '') || []
   }
 
@@ -18,4 +17,4 @@ const LocalStorageProvider = (): PersistenceInterface => {
   }
 }
 
-export default LocalStorageProvider
+export default LocalStorageTodoService

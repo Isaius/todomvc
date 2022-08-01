@@ -1,12 +1,16 @@
-import { createContext, useContext, ReactNode } from 'react'
+import { createContext, useContext } from 'react'
 import PropTypes from 'prop-types'
 
-import { ServicesContextInterface } from '../services/interfaces'
-import { PersitenceProvider } from '../services'
+import { TodoService } from '../services/TodoService'
+import { LocalStorageTodoService } from '../services'
 import { GenericProviderProps } from '../types'
 
-const services = {
-  data: PersitenceProvider(),
+export interface ServicesContextInterface {
+  data: TodoService
+}
+
+const services: ServicesContextInterface = {
+  data: LocalStorageTodoService()
 }
 
 const ServicesContext = createContext<ServicesContextInterface | null>(null)

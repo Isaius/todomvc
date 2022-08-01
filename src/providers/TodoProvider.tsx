@@ -1,4 +1,4 @@
-import { createContext, useContext } from 'react'
+import { createContext, useContext, useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
 
 import { GenericProviderProps, Todo } from '../types'
@@ -7,15 +7,17 @@ import { useServices } from './ServicesProvider'
 type TodoContextType = {
   todos: Todo[]
 }
+
 const TodoContext = createContext<TodoContextType | null>(null)
 
-const todos = (function () {
-  const { data } = useServices()
-
-  return data.retrieve()
-})()
-
 const TodoProvider = ({ children }: GenericProviderProps) => {
+  const { data } = useServices()
+  const [todos, setTodos] = useState<Todo[]>([])
+  
+  useEffect(() => {
+    data.retrieve().then(setTodos)
+  }, [data])
+
   return (
     <TodoContext.Provider value={{ todos }}>{children}</TodoContext.Provider>
   )
