@@ -1,7 +1,7 @@
-import { PersitenceProvider } from './services'
+import { LocalStorageTodoService } from './services'
 
 const container = {
-  storage: PersitenceProvider(),
+  storage: LocalStorageTodoService(),
 }
 
 export default container

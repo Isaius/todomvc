@@ -1,3 +1,3 @@
-import LocalStorageProvider from './LocalStorageService'
+import LocalStorageTodoService from './LocalStorageService'
 
-export { LocalStorageProvider as PersitenceProvider }
+export { LocalStorageTodoService }
