@@ -1,13 +1,7 @@
-import { ReactNode } from 'react'
-
-type Todo = {
-  title: string
-  isCompleted: boolean
-  creationDate: string
-}
+import { ReactNode } from 'react';
 
 type GenericProviderProps = {
-  children: ReactNode
-}
+  children: ReactNode;
+};
 
-export { type Todo, type GenericProviderProps }
+export { type GenericProviderProps };

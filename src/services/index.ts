@@ -1,3 +1,3 @@
-import LocalStorageTodoService from './LocalStorageService'
+import LocalStorageTodoService from './LocalStorageService';
 
-export { LocalStorageTodoService }
+export { LocalStorageTodoService };

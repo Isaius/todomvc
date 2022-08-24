@@ -1,8 +1,9 @@
 import { createContext, useContext, useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
 
-import { GenericProviderProps, Todo } from '../types'
+import { GenericProviderProps } from '../types'
 import { useServices } from './ServicesProvider'
+import { Todo } from '../domain/Todo'
 
 type TodoContextType = {
   todos: Todo[]
@@ -28,7 +29,7 @@ TodoProvider.propTypes = {
 }
 
 export const useTodo = () => {
-  const todoContext = useContext(TodoContext)
+  const todoContext = useContext(TodoContext);
 
   if (!todoContext) {
     throw new Error(
@@ -36,7 +37,7 @@ export const useTodo = () => {
     )
   }
 
-  return todoContext
+  return todoContext;
 }
 
-export default TodoProvider
+export default TodoProvider;

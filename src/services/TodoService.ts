@@ -1,4 +1,4 @@
-import { Todo } from '../types'
+import { Todo } from '../domain/Todo'
 
 export interface TodoService {
   store: (todos: Todo[]) => Promise<void>
