@@ -1,6 +1,7 @@
 
-import { Todo } from '../../domain/Todo';
+import { Todo } from '../../../domain/Todo'
 import TodoItem from '../TodoItem';
+import { Container } from './styled';
 
 type TodoListProps = {
   todos: Todo[],
@@ -8,9 +9,9 @@ type TodoListProps = {
 
 const TodoList = ({ todos }: TodoListProps) => {
   return (
-    <div className="todo-list">
+    <Container className="todo-list">
       {todos.map((todo) => <TodoItem todo={todo} />)}
-    </div>
+    </Container>
   );
 }
 

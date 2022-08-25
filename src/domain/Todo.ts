@@ -1,11 +1,31 @@
 type Todo = {
   title: string;
   isCompleted: boolean;
-  creationDate: string;
+  timestamp: number;
 };
 
-const addTodo = (todoList: Todo[], newTodo: Todo): Todo[] => {
-  return [...todoList, newTodo];
+const createNewTodo = (title: string): Todo => {
+  return {
+    title,
+    isCompleted: false,
+    timestamp: Date.now(),
+  };
 };
 
-export { type Todo, addTodo };
+const addTodo = (todoList: Todo[], newTodoTitle: string): Todo[] => {
+  return [...todoList, createNewTodo(newTodoTitle)];
+};
+
+const toggleTodo = (todoList: Todo[], todoTimestamp: number): Todo[] => {
+  const todos = todoList.map((todo) => {
+    if (todo.timestamp === todoTimestamp) {
+      todo.isCompleted = !todo.isCompleted;
+    }
+
+    return todo;
+  });
+
+  return todos;
+};
+
+export { type Todo, addTodo, toggleTodo };

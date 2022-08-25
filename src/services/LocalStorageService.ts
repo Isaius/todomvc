@@ -8,7 +8,9 @@ const LocalStorageTodoService = (): TodoService => {
   };
 
   const retrieve: TodoService['retrieve'] = async () => {
-    return JSON.parse(localStorage.getItem(todoRootKey) || '') || [];
+    const storedContent = localStorage.getItem(todoRootKey) || '';
+
+    return JSON.parse(storedContent) || [];
   };
 
   return {
