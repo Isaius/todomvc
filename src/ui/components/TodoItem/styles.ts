@@ -6,8 +6,8 @@ const Container = styled.div({
   justifyContent: 'flex-start',
   alignItems: 'center',
   border: '1px solid gray',
-  maxWidth: '40%',
-  width: '40%',
+  maxWidth: '100%',
+  width: '100%',
 });
 
 export { Container };

@@ -4,8 +4,7 @@ const Container = styled.div({
   display: 'flex',
   border: '2px solid gray',
   borderRadius: '4px',
-  maxWidth: '70%',
-  width: '70%',
+  width: 'auto',
 });
 
 const InputField = styled.input({

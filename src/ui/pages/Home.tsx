@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import Input from '../components/Input';
 import TodoList from '../components/TodoList';  
 import useTodo from '../hooks/useTodo';
-import { Container } from './styles'
+import { Container, Main } from './styles'
 
 function App() {
   const { todos } = useTodo()
@@ -14,8 +14,10 @@ function App() {
   
   return (
     <Container className="todo-home">
-      <Input />
-      <TodoList todos={todos} />
+      <Main className="todo-home__main">
+        <Input />
+        <TodoList todos={todos} />
+      </Main>
     </Container>
   );
 }
