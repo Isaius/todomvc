@@ -4,7 +4,7 @@ const todoRootKey = 'todo_root';
 
 const LocalStorageTodoService = (): TodoService => {
   const store: TodoService['store'] = async (data) => {
-    localStorage.setItem(todoRootKey, JSON.stringify(data));
+    return localStorage.setItem(todoRootKey, JSON.stringify(data));
   };
 
   const retrieve: TodoService['retrieve'] = async () => {
