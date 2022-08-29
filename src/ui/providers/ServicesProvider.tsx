@@ -1,9 +1,9 @@
 import { createContext, useContext } from 'react'
 import PropTypes from 'prop-types'
 
-import { TodoService } from '../services/TodoService'
-import { LocalStorageTodoService } from '../services'
-import { GenericProviderProps } from '../types'
+import { TodoService } from '../../services/TodoService'
+import { LocalStorageTodoService } from '../../services'
+import { GenericProviderProps } from './GenericProviderProps'
 
 export interface ServicesContextInterface {
   data: TodoService

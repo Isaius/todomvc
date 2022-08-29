@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 
-import { GenericProviderProps } from '../types'
+import { GenericProviderProps } from './GenericProviderProps'
 import ServicesProvider from './ServicesProvider'
 import TodoProvider from './TodoProvider'
 
