@@ -7,18 +7,23 @@ import { Todo } from '../../domain/Todo'
 
 type TodoContextType = {
   todos: Todo[],
-  setTodos: React.Dispatch<React.SetStateAction<Todo[]>>
+  setTodos: (todos: Todo[]) => void
 }
 
 const TodoContext = createContext<TodoContextType | null>(null)
 
 const TodoProvider = ({ children }: GenericProviderProps) => {
   const { data } = useServices()
-  const [todos, setTodos] = useState<Todo[]>([])
-  
+  const [todos, setTodosValue] = useState<Todo[]>([])
+
   useEffect(() => {
-    data.retrieve().then((todos) => { setTodos(todos)})
-  }, [data])
+    data.retrieve().then((todos) => { setTodosValue(todos)})
+  }, [data]);
+
+  const setTodos = (newTodos: Todo[]) => {
+    setTodosValue(newTodos);
+    data.store(newTodos);
+  }
 
   return (
     <TodoContext.Provider value={{ todos, setTodos }}>{children}</TodoContext.Provider>

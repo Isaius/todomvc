@@ -7,7 +7,7 @@ const Input = () => {
   const { handleTodoAddition } = useTodo();
   const [inputValue, setInputValue] = useState("")
 
-  const handleKeyboardSubmission = (event: React.KeyboardEvent) => {
+  const handleKeyboardSubmission = (event: React.KeyboardEvent<HTMLInputElement>) => {
     if (event.key === 'Enter') {
       handleTodoAddition(inputValue)
       clearInput()
@@ -18,7 +18,7 @@ const Input = () => {
     setInputValue(event.target.value);
   }
 
-  const clearInput = () => { 
+  const clearInput = () => {
     setInputValue("")
   }
 

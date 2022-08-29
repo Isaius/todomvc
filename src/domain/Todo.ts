@@ -17,15 +17,16 @@ const addTodo = (todoList: Todo[], newTodoTitle: string): Todo[] => {
 };
 
 const toggleTodo = (todoList: Todo[], todoTimestamp: number): Todo[] => {
-  const todos = todoList.map((todo) => {
-    if (todo.timestamp === todoTimestamp) {
-      todo.isCompleted = !todo.isCompleted;
+  return todoList.map((todo) => {
+    if (todo.timestamp !== todoTimestamp) {
+      return todo;
     }
 
-    return todo;
+    return {
+      ...todo,
+      isCompleted: !todo.isCompleted,
+    };
   });
-
-  return todos;
 };
 
 export { type Todo, addTodo, toggleTodo };
